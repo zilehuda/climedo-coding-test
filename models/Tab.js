@@ -2,6 +2,9 @@ const mongoose = require('mongoose');
 
 
 
+/**
+ * TODO: use DataPointSchema to validate the required fields with mixedSchema
+ */
 // const DataPointSchema = mongoose.Schema({
 //     dataType: {
 //         type: String,
@@ -14,9 +17,7 @@ const mongoose = require('mongoose');
 //     description: {
 //         type: String,
 //         required: true,
-//     },
-//     properties: {},
-    
+//     }
 // });
 
 const TabSchema = mongoose.Schema({

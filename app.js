@@ -7,18 +7,16 @@ const app = express();
 const mongoose = require('mongoose');
 
 const bodyParser = require('body-parser')
+
+/**
+ * To serialize the input JSON
+ */
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 
 const tabsRoute = require('./routes/tabs')
-
-
-app.get('/', (req, res) => {
-    res.send("THIS IS CLIMEDO TEST")
-});
-
 
 app.use('/tabs', tabsRoute)
 
@@ -28,6 +26,9 @@ mongoose.set('useUnifiedTopology', true);
 
 mongoose.connect(
     process.env.DB_CONNECTION, () => {
+      /**
+       * Testing ig mongoDB is connected
+       */
     console.log("connected to db")
 });
 

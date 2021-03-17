@@ -1,6 +1,7 @@
 
 const Tab = require('../models/Tab')
 
+const DATATYPE_ENUMS = ['selection', 'text', 'date', 'number',]
 
 const tab_index = async(req, res) => {
     try{
@@ -17,6 +18,23 @@ const tab_index = async(req, res) => {
 
 
 const tab_create = async(req, res) => {
+
+
+    /**
+     * TODO: Validate the dataType from each object of dataPoints array
+     * Solution: validate it manually, use any express third-party validation library,
+     * or use mongoose schema to validate it.
+    */
+        
+
+    // dataPoints = req.body.dataPoints
+    // dataPoints.forEach(dataPoint => {
+    //     let dataType = dataPoint['dataType']
+    //     if(DATATYPE_ENUMS.includes(dataType) == false) {
+    //         res.json({message: 'required'})
+    //     }
+    // });
+
 
     const tab = new Tab({
         name: req.body.name,
@@ -59,6 +77,9 @@ const tab_update = async(req, res) => {
 
 const tab_stats = async(req, res) => {
     
+    /**
+     * TODO: Use in-built query mechanism to count the the total of each dataPoints
+     */
     try{
     let tabStats = []
     await Tab.find({}, (err, tabs) => {
